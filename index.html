@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>...for all eternity.</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Character Name Prompt Overlay -->
+    <div id="character-prompt" class="prompt-overlay">
+        <div class="prompt-content">
+            <h1>Enter Your Name</h1>
+            <p>You must identify yourself.</p>
+            <input type="text" id="character-name-input" placeholder="Your character's name..." autocomplete="off">
+            <button id="enter-button">This is Me.</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="hidden">
+        <header class="hero">
+            <h1 class="title">Welcome to the Blood Veil</h1>
+            <div class="blood-veil-decoration"></div>
+        </header>
+
+        <main class="content-wrapper">
+            <!-- Cast Section -->
+            <section class="section cast">
+                <h2 class="section-title">Cast</h2>
+                <div class="cast-grid">
+                    <div class="cast-group">
+                        <h3>Players</h3>
+                        <ul class="cast-list">
+                            <li>Thatcher, the Wild Card</li>
+                            <li><span id="bell-name">Bell, the Fated</span></li>
+                            <li><span id="launa-name">Launa</span></li>
+                            <li>Chariot, the Starborn</li>
+                            <li>Raine, Seeker of Secrets</li>
+                        </ul>
+                    </div>
+                    <div class="cast-group">
+                        <h3>Others</h3>
+                        <ul class="cast-list">
+                            <li class="struck">Altair, the Mad</li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="quote" id="quote">There are no heroes.</p>
+            </section>
+
+            <!-- History Section -->
+            <section class="section history">
+                <h2 class="section-title">History</h2>
+                <div class="history-text" id="athena-id">
+
+                    
+
+                    <p>In the years following the cataclysmic events on the mainland, a number of residents left to start a new life. Among them was the now-retired Emeritus Jonathan Quidd, known for his role in quelling the Inferno. <span class="italic">(Lesser known is his role in causing the Inferno.)</span> Including him, a number of brilliant minds formed a strong economic backbone on Lunar Island, bringing more and more people to the booming villages.</p>
+                    
+                    <p>Evil was brewing underneath. Operating out of a secluded location on the mainland, a madman was working fervently to unknown ends. Unfortunately, <span class="struck">his</span> potential was limited, forcing <span class="struck">him</span> to relocate to a more suitable location.</p>
+                    
+                    <p>In an instant, a mountain was levelled. <span class="struck">He</span> had used up all the magic <span class="struck">he</span> could muster, moving <span class="struck">his</span> secluded castle to the center of Lunar Island, where there would again be enough 'material' for his experiments.</p>
+                    
+                    <p id="umbra-paragraph"></p>
+                    
+                    <p>A crimson wall (known in writings as the Blood Veil) was formed around Lunar Island, blocking all interference entering- or exiting- the island. This effectively trapped all people within the confines of the Blood Veil.</p>
+                    
+                    <p>Everybody knows they are simply waiting to become victims. For fear of being found by <span class="struck">him</span>, most people stay underground, where it's safer.</p>
+                    
+                    <p>What is <span class="struck">he</span> up to? How long will you be kept here? <span id="question-id"></span></p>
+                    
+                    <p>These are questions you have been asking for two decades.</p>
+                    
+                    <p class="highlight">There is, of course, only one surefire way to find out.</p>
+                </div>
+            </section>
+
+            <!-- Pantheon Section -->
+            <section class="section pantheon">
+                <h2 class="section-title">Pantheon</h2>
+                <div class="deities">
+                    <div class="deity">
+                        <h3>Veira, the Sheltering Light</h3>
+                        <p>Goddess of Family and Health. She is known to bring bountiful harvests to those who hide underground.</p>
+                    </div>
+                    <div class="deity">
+                        <h3>Athena of the Cosmos</h3>
+                        <p>Goddess of the Stars and Fate. She is said to guide those who surface to their destinations.</p>
+                    </div>
+                    <div class="deity">
+                        <h3>Yukionna, the Shattered</h3>
+                        <p id="yukionna-description">Goddess of Love and the Seasons. Her power is limited, but she protects those she can.</p>
+                    </div>
+                    <div class="deity">
+                        <h3>???</h3>
+                        <p id="fourth-god">There are rumors of a fourth god, still mortal, working to rid Lunar Island of its captor. She has not been spotted in many years.</p>
+                    </div>
+                </div>
+                
+                <div class="false-gods">
+                    <h3>The 'False Gods'</h3>
+                    <div class="deity">
+                        <h3>Emeritus Jonathan Quidd</h3>
+                        <p>While not <em>technically</em> a god, he is seen as a deific figure due to the ubiquity of his work across the island. Not all of it has been found.</p>
+                    </div>
+                    <div class="deity">
+                        <h3>Amalia the Spirited</h3>
+                        <p>Amalia appears as a spirit, seen dancing with another figure across the landscape.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Objective Section -->
+            <section class="section objective">
+                <h2 class="section-title">Objective</h2>
+                <p class="objective-text">You can probably guess what you all have to do.</p>
+            </section>
+
+            <!-- Final Note Section -->
+            <section class="section final-note">
+                <h2 class="section-title">One Final Note</h2>
+                <p>Alongside this campaign, I will be releasing a large volume of homebrew content I've been working on. All of this material will be legal in this campaign (most relevant, the spells and feats).</p>
+                <p>Samples of this can be found here:</p>
+                <a href="spells.html" class="link-button">View Homebrew Spells →</a>
+            </section>
+        </main>
+
+        <footer>
+            <p class="character-greeting" id="greeting"></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

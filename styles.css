@@ -1,0 +1,410 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blood-red: #8B0000;
+    --dark-blood: #4A0000;
+    --crimson: #DC143C;
+    --void-black: #0a0a0a;
+    --deep-gray: #1a1a1a;
+    --parchment: #d4c5a9;
+    --parchment-dark: #b8a88a;
+    --text-light: #e8e8e8;
+    --text-muted: #a0a0a0;
+    --gold: #d4af37;
+    --mystic-purple: #9b59b6;
+    --deep-purple: #6c3483;
+}
+
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--void-black);
+    color: var(--text-light);
+    line-height: 1.8;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Character Prompt Overlay */
+.prompt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--void-black) 0%, var(--dark-blood) 50%, var(--void-black) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: pulse-bg 8s ease-in-out infinite;
+}
+
+.prompt-content {
+    text-align: center;
+    padding: 3rem;
+    max-width: 500px;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.prompt-content h1 {
+    font-size: 2.5rem;
+    color: var(--crimson);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+    letter-spacing: 2px;
+}
+
+.prompt-content p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+#character-name-input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    background: rgba(26, 26, 26, 0.8);
+    border: 2px solid var(--blood-red);
+    color: var(--parchment);
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+#character-name-input:focus {
+    outline: none;
+    border-color: var(--crimson);
+    box-shadow: 0 0 15px rgba(220, 20, 60, 0.3);
+}
+
+#character-name-input::placeholder {
+    color: var(--text-muted);
+}
+
+#enter-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-family: inherit;
+    background: linear-gradient(135deg, var(--blood-red), var(--dark-blood));
+    color: var(--parchment);
+    border: 2px solid var(--crimson);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+#enter-button:hover {
+    background: linear-gradient(135deg, var(--crimson), var(--blood-red));
+    box-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Main Content */
+.hidden {
+    display: none !important;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(180deg, var(--void-black) 0%, var(--deep-gray) 50%, var(--void-black) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(139, 0, 0, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.title {
+    font-size: 3.5rem;
+    color: var(--crimson);
+    text-shadow: 0 0 30px rgba(220, 20, 60, 0.5), 0 0 60px rgba(139, 0, 0, 0.3);
+    letter-spacing: 4px;
+    position: relative;
+    z-index: 1;
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% { text-shadow: 0 0 30px rgba(220, 20, 60, 0.5), 0 0 60px rgba(139, 0, 0, 0.3); }
+    50% { text-shadow: 0 0 40px rgba(220, 20, 60, 0.7), 0 0 80px rgba(139, 0, 0, 0.5); }
+}
+
+.blood-veil-decoration {
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+    margin: 2rem auto;
+    animation: linePulse 2s ease-in-out infinite;
+}
+
+@keyframes linePulse {
+    0%, 100% { opacity: 0.5; width: 200px; }
+    50% { opacity: 1; width: 300px; }
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: rgba(26, 26, 26, 0.5);
+    border: 1px solid rgba(139, 0, 0, 0.3);
+    border-radius: 8px;
+    position: relative;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--blood-red), transparent);
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+/* Cast Section */
+.cast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.cast-group h3 {
+    color: var(--crimson);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.cast-list {
+    list-style: none;
+}
+
+.cast-list li {
+    padding: 0.5rem 0;
+    color: var(--parchment);
+    border-bottom: 1px solid rgba(139, 0, 0, 0.2);
+}
+
+.cast-list li:last-child {
+    border-bottom: none;
+}
+
+.quote {
+    text-align: center;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-top: 2rem;
+    font-size: 1.2rem;
+}
+
+/* History Section */
+.history-text p {
+    margin-bottom: 1rem;
+    color: var(--parchment);
+}
+
+.italic {
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+.struck {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.highlight {
+    color: var(--crimson);
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(220, 20, 60, 0.3);
+}
+
+/* Pantheon Section */
+.deities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.false-gods {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(139, 0, 0, 0.3);
+}
+
+.false-gods h3 {
+    color: var(--crimson);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.deity {
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    border: 1px solid rgba(139, 0, 0, 0.2);
+}
+
+.deity h3 {
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.deity p {
+    color: var(--parchment-dark);
+}
+
+/* Character-specific content styling */
+.character-content {
+    color: var(--mystic-purple);
+    font-style: italic;
+}
+
+@keyframes purpleGlow {
+    0%, 100% { text-shadow: 0 0 10px rgba(155, 89, 182, 0.3); }
+    50% { text-shadow: 0 0 20px rgba(155, 89, 182, 0.5); }
+}
+
+/* Objective Section */
+.objective-text {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--crimson);
+    font-style: italic;
+    padding: 2rem;
+    background: rgba(139, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+/* Final Note Section */
+.final-note p {
+    margin-bottom: 1rem;
+}
+
+.link-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--blood-red), var(--dark-blood));
+    color: var(--parchment);
+    text-decoration: none;
+    border: 2px solid var(--crimson);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.link-button:hover {
+    background: linear-gradient(135deg, var(--crimson), var(--blood-red));
+    box-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid rgba(139, 0, 0, 0.3);
+    margin-top: 2rem;
+}
+
+.character-greeting {
+    color: var(--gold);
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .section {
+        padding: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .prompt-content {
+        padding: 2rem;
+    }
+    
+    .prompt-content h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Fade out animation for prompt */
+.prompt-overlay.fade-out {
+    animation: fadeOut 0.8s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        visibility: visible;
+    }
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Fade in animation for main content */
+#main-content.fade-in {
+    animation: contentFadeIn 1s ease-out;
+}
+
+@keyframes contentFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
