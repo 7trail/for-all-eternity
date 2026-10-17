@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Notice of Arrival: "Electron"
+        </title>
+        <style>
+            body {
+                background-color: #111111;
+                color: #BBFFBB;
+                text-align: center;
+                margin: auto;
+                padding: 30px;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+
+            div {
+                border: 1px solid #BBFFBB;
+                border-radius: 0;
+                padding: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="maindiv">
+        </div>
+    </body>
+    <script>
+        let maindiv = document.querySelector("#maindiv");
+        let text = "";
+        let counter = -20;
+        let charArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+        window.setInterval(() => {
+            if (counter > 200) {
+                let arrLines = ['<h1>Notice of Arrival: <span style="color:#fcffac">"Electron"</span></h1>',
+                    '<p>This information is pertiment to your alert.</p>',
+                    '<p>The experiment has finally arrived. After recovering its soul from Void\'s possession, we were able to reach our outside contact to have him exhume Electron\'s body and deliver it through the veil. A transport met him at the docks, and Electron was in our chambers for augmentation a mere two hours later.</p>',
+                    '<p>Once augmentation is complete, Electron will neutralize the listed threats, and he will do so handily. That is, if the stories we hear are true. They must be right? Otherwise, why would we care so much about him?</p>',
+                    '<p>While I am not typically one to question your practices, I don\'t find a reason for us to speak in codenames. The messages we transmit and the devices we use would most certainly be ahead of the straggler\'s technology.</p>',
+                    '<p>I also encourage you to be watchful of our contact, Charon; I suspect they are not as reliable as we believe.</p>',
+                    '<p>That being said, we believe this one to be incredibly <i>potent</i>. Results coming within 48 hours.</p>',
+                    '<p></p>',
+                    '<p>Signed, <i>Stalker</i></p>',
+                    '<sub>This device cannot send a response; please connect to the main terminal for full capabilities.</sub>'
+                ];
+                text = arrLines.join("\n");
+                maindiv.innerHTML = text;
+                return;
+            }
+            counter += 1;
+
+            let lines = [];
+            let lineNew = "<h2>Alert from Colossus</h2><h4>The following threats must be prioritized and eliminated:</h4>";
+
+            if (counter > 0) {
+                lines.push("wildcard");
+            }
+
+            if (counter > 10) {
+                lines.push("chariot")
+            }
+
+            if (counter > 20) {
+                lines.push("sower")
+            }
+
+            if (counter > 30) {
+                lines.push("failure")
+            }
+
+            if (counter > 40) {
+                lines.push("puppet")
+            }
+
+            if (counter > 50) {
+                lines.push("valkyrie")
+            }
+
+            for (let j = 0; j < lines.length; j++) {
+                let line = lines[j];
+                lineNew += ((counter + (line.length + j*3))%26)==0?"<p style='color:white'>":"<p>";
+                for (let i = 0; i < line.length; i++) {
+                    let diff = line.charCodeAt(i) - 97;
+                    let final = ((diff + counter + (line.length + j*3)) % 26);
+                    lineNew += charArray[final].toUpperCase();
+                }
+                lineNew += "</p>"
+            }
+
+            if (counter > 100) {
+                lineNew += "<p>All for one</p>";
+            }
+            if (counter > 120) {
+                lineNew += "<p>For all eternity</p>";
+            }
+
+            if (counter >= 150) {
+                let ind = Math.floor((counter-150)/10);
+                let arr2 = ["burnt into the screen, a faint message reads:", "when you see my manor...", "you do not come in...", "no matter what she does...", "she is trapped too", "i still see his eyes when i dream"];
+                lineNew = "<p>Message received from 'STALKER'! Downloading...</p>";
+                for (let i = 0; i < ind+1; i++) {
+                    lineNew += "<p style='color:black'>"+arr2[i]+"</p>";
+                }
+            }
+            text = lineNew; // 97
+            maindiv.innerHTML = text;
+        }, 500);
+
+        
+    </script>
+</html>
